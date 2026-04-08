@@ -13,13 +13,13 @@ export default function ServicesPage() {
           <FadeIn>
             <div className="text-center">
               <span className="inline-block text-sm font-semibold tracking-wider uppercase mb-3 text-primary-light">
-                Nase usluge
+                Naše usluge
               </span>
               <h1 className="text-4xl sm:text-5xl font-bold font-[family-name:var(--font-playfair)] mb-6 text-text">
                 Oblasti kojima se bavimo
               </h1>
               <p className="text-lg text-text-light max-w-2xl mx-auto">
-                Sveobuhvatan pristup dijagnostici i lecenju uz najsavremenije
+                Sveobuhvatan pristup dijagnostici i lečenju uz najsavremenije
                 metode fizikalne medicine i rehabilitacije.
               </p>
             </div>
@@ -45,7 +45,7 @@ export default function ServicesPage() {
             Potrebna vam je konsultacija?
           </h2>
           <p className="text-white/80 mb-8">
-            Zakazite pregled i napravite prvi korak ka oporavku.
+            Zakažite pregled i napravite prvi korak ka oporavku.
           </p>
           <a
             href={`tel:${SITE.phone.replace(/\s/g, "")}`}

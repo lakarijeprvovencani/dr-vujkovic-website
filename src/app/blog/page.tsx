@@ -5,9 +5,9 @@ import { getAllPosts } from "@/lib/blog";
 import { SectionHeading } from "@/components/SectionHeading";
 
 export const metadata = {
-  title: "Blog | Dr Branko M. Vujkovic",
+  title: "Blog | Dr Branko M. Vujković",
   description:
-    "Strucni tekstovi, naucni radovi i saveti iz oblasti fizikalne medicine i rehabilitacije.",
+    "Stručni tekstovi, naučni radovi i saveti iz oblasti fizikalne medicine i rehabilitacije.",
 };
 
 export default function BlogPage() {
@@ -21,10 +21,10 @@ export default function BlogPage() {
             Blog
           </span>
           <h1 className="text-4xl sm:text-5xl font-bold font-[family-name:var(--font-playfair)] mb-6 text-text">
-            Strucni tekstovi i saveti
+            Stručni tekstovi i saveti
           </h1>
           <p className="text-lg text-text-light max-w-2xl mx-auto">
-            Strucni i naucni radovi, saveti za pacijente i aktuelnosti iz
+            Stručni i naučni radovi, saveti za pacijente i aktuelnosti iz
             oblasti fizikalne medicine.
           </p>
         </div>
@@ -35,10 +35,10 @@ export default function BlogPage() {
           {posts.length === 0 ? (
             <div className="text-center py-20">
               <p className="text-text-muted text-lg mb-2">
-                Blog postovi ce uskoro biti dostupni.
+                Blog postovi će uskoro biti dostupni.
               </p>
               <p className="text-text-muted">
-                Pratite nas na drustvenim mrezama za najnovije informacije.
+                Pratite nas na društvenim mrežama za najnovije informacije.
               </p>
             </div>
           ) : (
@@ -79,7 +79,7 @@ export default function BlogPage() {
                       {post.excerpt}
                     </p>
                     <span className="inline-flex items-center gap-2 text-primary text-sm font-medium group-hover:gap-3 transition-all">
-                      Procitaj vise
+                      Pročitaj više
                       <ArrowRight className="w-4 h-4" />
                     </span>
                   </div>

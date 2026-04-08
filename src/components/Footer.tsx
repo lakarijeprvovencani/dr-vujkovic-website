@@ -11,10 +11,10 @@ export function Footer() {
           {/* Brand */}
           <div>
             <h3 className="text-xl font-bold font-[family-name:var(--font-playfair)] mb-4">
-              Dr Branko Vujkovic
+              Dr Branko Vujković
             </h3>
             <p className="text-white/70 text-sm leading-relaxed mb-6">
-              {SITE.role}. Posvecen vasem zdravlju i oporavku uz najsavremenije
+              {SITE.role}. Posvećen vašem zdravlju i oporavku uz najsavremenije
               metode fizikalne medicine.
             </p>
             <div className="flex gap-3">
@@ -42,7 +42,7 @@ export function Footer() {
             <h4 className="font-semibold mb-4 text-white/90">Navigacija</h4>
             <ul className="space-y-2.5">
               {[
-                { href: "/", label: "Pocetna" },
+                { href: "/", label: "Početna" },
                 { href: "/o-meni", label: "O doktoru" },
                 { href: "/usluge", label: "Usluge" },
                 { href: "/blog", label: "Blog" },
@@ -110,7 +110,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-white/10 mt-12 pt-8 text-center text-white/40 text-sm">
-          &copy; {new Date().getFullYear()} {SITE.name}. Sva prava zadrzana.
+          &copy; {new Date().getFullYear()} {SITE.name}. Sva prava zadržana.
         </div>
       </div>
     </footer>

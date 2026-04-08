@@ -17,7 +17,7 @@ export async function generateMetadata({
   const post = getPostBySlug(slug);
   if (!post) return {};
   return {
-    title: `${post.title} | Blog | Dr Branko M. Vujkovic`,
+    title: `${post.title} | Blog | Dr Branko M. Vujković`,
     description: post.excerpt,
   };
 }

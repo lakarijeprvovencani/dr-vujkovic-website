@@ -16,23 +16,23 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Dr Branko M. Vujkovic | Fizijatar - Specijalist fizikalne medicine",
+  title: "Dr Branko M. Vujković | Fizijatar - Specijalist fizikalne medicine",
   description:
-    "MSc. dr Branko M. Vujkovic - Specijalist fizikalne medicine i rehabilitacije. Dijagnostika i terapija bolnih stanja, regenerativna medicina, sportske povrede, sokvejv terapija. Sabac, Srbija.",
+    "MSc. dr Branko M. Vujković - Specijalist fizikalne medicine i rehabilitacije. Dijagnostika i terapija bolnih stanja, regenerativna medicina, sportske povrede, šokvejv terapija. Šabac, Srbija.",
   keywords: [
     "fizijatar",
     "fizikalna medicina",
     "rehabilitacija",
-    "Sabac",
+    "Šabac",
     "sportske povrede",
-    "sokvejv terapija",
+    "šokvejv terapija",
     "regenerativna medicina",
-    "dr Vujkovic",
+    "dr Vujković",
   ],
   openGraph: {
-    title: "Dr Branko M. Vujkovic | Fizijatar",
+    title: "Dr Branko M. Vujković | Fizijatar",
     description:
-      "Specijalist fizikalne medicine i rehabilitacije - Sabac, Srbija",
+      "Specijalist fizikalne medicine i rehabilitacije - Šabac, Srbija",
     type: "website",
   },
 };

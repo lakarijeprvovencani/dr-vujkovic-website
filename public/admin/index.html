@@ -4,10 +4,246 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
-    <title>Admin Panel - Dr Branko Vujkovic</title>
+    <title>Admin Panel - Dr Branko Vujković</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <style>
+      :root {
+        --primary: #1a5276;
+        --primary-light: #2980b9;
+        --primary-dark: #0e2f44;
+        --accent: #27ae60;
+        --accent-light: #2ecc71;
+        --bg: #f8fafb;
+        --border: #e2e8f0;
+        --text: #1a1a2e;
+        --text-light: #4a5568;
+        --radius: 12px;
+      }
+
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+        background: var(--bg) !important;
+      }
+
+      header[class*="Header"],
+      [class*="AppHeader"] header {
+        background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%) !important;
+        border-bottom: none !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
+      }
+
+      [class*="Sidebar"],
+      aside {
+        background: white !important;
+        border-right: 1px solid var(--border) !important;
+      }
+
+      [class*="ListCard"],
+      [class*="Card"] {
+        border-radius: var(--radius) !important;
+        border: 1px solid var(--border) !important;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.04) !important;
+        transition: all 0.2s ease !important;
+      }
+
+      [class*="ListCard"]:hover,
+      [class*="Card"]:hover {
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
+        border-color: var(--primary-light) !important;
+      }
+
+      [class*="ToolbarButton"],
+      button[class*="Button"] {
+        border-radius: 8px !important;
+        font-weight: 600 !important;
+        transition: all 0.2s ease !important;
+      }
+
+      [class*="PublishButton"] button,
+      button[class*="publish" i] {
+        background: var(--accent) !important;
+        border-color: var(--accent) !important;
+        border-radius: 8px !important;
+      }
+
+      [class*="PublishButton"] button:hover,
+      button[class*="publish" i]:hover {
+        background: var(--accent-light) !important;
+      }
+
+      [class*="EditorContainer"],
+      [class*="ControlPane"] {
+        background: white !important;
+        border-radius: var(--radius) !important;
+      }
+
+      [class*="EditorToolbar"] {
+        background: white !important;
+        border-bottom: 1px solid var(--border) !important;
+        border-radius: var(--radius) var(--radius) 0 0 !important;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="url"],
+      textarea,
+      select {
+        border-radius: 8px !important;
+        border: 1px solid var(--border) !important;
+        padding: 10px 14px !important;
+        font-family: 'Inter', sans-serif !important;
+        transition: border-color 0.2s ease !important;
+      }
+
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      input[type="url"]:focus,
+      textarea:focus,
+      select:focus {
+        border-color: var(--primary-light) !important;
+        box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.1) !important;
+        outline: none !important;
+      }
+
+      label[class*="Label"],
+      [class*="ControlLabel"] {
+        font-weight: 600 !important;
+        color: var(--text) !important;
+        font-size: 13px !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+      }
+
+      [class*="CollectionTop"] {
+        background: white !important;
+        border-radius: var(--radius) !important;
+        border: 1px solid var(--border) !important;
+        padding: 16px !important;
+        margin-bottom: 16px !important;
+      }
+
+      a[href*="new"],
+      [class*="newEntryButton"] {
+        background: var(--primary) !important;
+        color: white !important;
+        border-radius: 8px !important;
+        font-weight: 600 !important;
+        transition: all 0.2s ease !important;
+      }
+
+      a[href*="new"]:hover,
+      [class*="newEntryButton"]:hover {
+        background: var(--primary-light) !important;
+      }
+
+      [class*="BackCollection"] a,
+      [class*="backCollection"] a {
+        color: var(--primary) !important;
+        font-weight: 500 !important;
+      }
+
+      [class*="Toast"] {
+        border-radius: var(--radius) !important;
+        font-family: 'Inter', sans-serif !important;
+      }
+
+      [class*="MarkdownControl"] {
+        border-radius: var(--radius) !important;
+        overflow: hidden !important;
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--border);
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #cbd5e0;
+      }
+
+      [class*="Entries"] > div {
+        gap: 12px !important;
+      }
+
+      [class*="MediaLibraryModal"] {
+        border-radius: var(--radius) !important;
+      }
+
+      [class*="Loading"] {
+        color: var(--primary) !important;
+      }
+
+      [class*="Dropdown"] ul,
+      [class*="dropdown"] ul {
+        border-radius: 8px !important;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.12) !important;
+        border: 1px solid var(--border) !important;
+      }
+
+      [class*="StatusButton"],
+      [class*="status"] span {
+        border-radius: 20px !important;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+      }
+
+      [class*="AppHeader"] a[href="/"] {
+        font-family: 'Playfair Display', serif !important;
+        font-weight: 700 !important;
+      }
+    </style>
   </head>
   <body>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+      CMS.registerLocale('sr', {
+        app: {
+          header: { content: 'Садржај', media: 'Медији', quickAdd: 'Брзо додај' },
+          app: { errorHeader: 'Грешка при учитавању CMS конфигурације', configErrors: 'Грешке у конфигурацији', checkConfigYml: 'Проверите config.yml фајл.', loadingConfig: 'Учитавање конфигурације...', waitingBackend: 'Чекање на backend...' },
+          notFoundPage: { header: 'Није пронађено' },
+        },
+        collection: {
+          sidebar: { collections: 'Колекције', allCollections: 'Све колекције', searchAll: 'Претражи све', searchIn: 'Претражи у' },
+          collectionTop: { sortBy: 'Сортирај по', viewAs: 'Прикажи као', newButton: 'Нови %{collectionLabel}', ascending: 'Растуће', descending: 'Опадајуће', searchResults: 'Резултати претраге за "%{searchTerm}"', searchResultsInCollection: 'Резултати претраге за "%{searchTerm}" у %{collection}', filterBy: 'Филтрирај по', groupBy: 'Групиши по' },
+          entries: { loadingEntries: 'Учитавање уноса...', cachingEntries: 'Кеширање уноса...', longerLoading: 'Ово може потрајати пар минута' },
+          defaultFields: { author: { label: 'Аутор' }, updatedOn: { label: 'Ажурирано' } },
+        },
+        editor: {
+          editorControl: { field: { optional: 'опционо' } },
+          editorControlPane: { widget: { required: '%{fieldLabel} је обавезно поље.', regexPattern: '%{fieldLabel} не одговара шаблону: %{pattern}.', processing: '%{fieldLabel} се обрађује.', range: '%{fieldLabel} мора бити између %{minValue} и %{maxValue}.', min: '%{fieldLabel} мора бити најмање %{minValue}.', max: '%{fieldLabel} мора бити највише %{maxValue}.', rangeCount: '%{fieldLabel} мора имати између %{minCount} и %{maxCount} ставки.', rangeCountExact: '%{fieldLabel} мора имати тачно %{count} ставки.', rangeMin: '%{fieldLabel} мора имати најмање %{minCount} ставки.', rangeMax: '%{fieldLabel} мора имати највише %{maxCount} ставки.', invalidPath: "'%{path}' није валидна путања", pathExists: "Путања '%{path}' већ постоји" }, i18n: { writingInLocale: 'Писање на %{locale}' } },
+          editor: { onLeavePage: 'Да ли сте сигурни да желите да напустите страницу? Промене неће бити сачуване.', onUpdatingWithUnsavedChangesBody: 'Имате несачуване промене. Сачувајте пре ажурирања статуса.', onPublishingNotReadyBody: 'Ажурирајте статус на "Спреман" пре објављивања.', onPublishingWithUnsavedChangesBody: 'Имате несачуване промене. Сачувајте пре објављивања.', onPublishingBody: 'Да ли сте сигурни да желите да објавите овај унос?', onDeleteWithUnsavedChangesBody: 'Да ли сте сигурни да желите да обришете објављени унос и несачуване промене?', onDeletePublishedEntryBody: 'Да ли сте сигурни да желите да обришете овај објављени унос?', loadingEntry: 'Учитавање уноса...', confirmLoadBackupBody: 'Пронађена је локална резервна копија. Да ли желите да је користите?' },
+          editorToolbar: { publishing: 'Објављивање...', publish: 'Објави', published: 'Објављено', unpublish: 'Повуци објаву', duplicate: 'Дуплирај', publishAndCreateNew: 'Објави и креирај нови', publishAndDuplicate: 'Објави и дуплирај', deleteEntry: 'Обриши унос', saving: 'Чување...', save: 'Сачувај', statusInfoTooltipDraft: 'Статус уноса је нацрт.', statusInfoTooltipInReview: 'Унос је у процесу прегледа.', deleting: 'Брисање...', updating: 'Ажурирање...', status: 'Статус', backCollection: 'Писање у %{collectionLabel} колекцији', unsavedChanges: 'Несачуване промене', changesSaved: 'Промене сачуване', draft: 'Нацрт', inReview: 'У прегледу', ready: 'Спремно', publishNow: 'Објави сада', deployPreviewPendingButtonLabel: 'Провери преглед', deployPreviewButtonLabel: 'Погледај преглед', deployButtonLabel: 'Погледај уживо' },
+          editorWidgets: { markdown: { bold: 'Подебљано', italic: 'Курзив', code: 'Код', link: 'Линк', linkPrompt: 'Унесите URL линка', headings: 'Наслови', quote: 'Цитат', bulletedList: 'Листа са тачком', numberedList: 'Нумерисана листа', addComponent: 'Додај компоненту', richText: 'Богат текст', markdown: 'Markdown' }, image: { choose: 'Изабери слику', chooseUrl: 'Убаци са URL-а', replaceUrl: 'Замени са URL-ом', promptUrl: 'Унесите URL слике', chooseDifferent: 'Изабери другу слику', remove: 'Уклони слику' }, file: { choose: 'Изабери фајл', chooseUrl: 'Убаци са URL-а', replaceUrl: 'Замени са URL-ом', promptUrl: 'Унесите URL фајла', chooseDifferent: 'Изабери други фајл', remove: 'Уклони фајл' }, unknownControl: { noControl: "Нема контроле за widget '%{widget}'." }, unknownPreview: { noPreview: "Нема прегледа за widget '%{widget}'." }, headingOptions: { headingOne: 'Наслов 1', headingTwo: 'Наслов 2', headingThree: 'Наслов 3', headingFour: 'Наслов 4', headingFive: 'Наслов 5', headingSix: 'Наслов 6' }, datetime: { now: 'Сада', clear: 'Обриши' }, list: { add: 'Додај %{item}', addType: 'Додај %{item} тип' } },
+        },
+        mediaLibrary: {
+          mediaLibraryCard: { draft: 'Нацрт', copy: 'Копирај', copyUrl: 'Копирај URL', copyPath: 'Копирај путању', copyName: 'Копирај име', copied: 'Копирано' },
+          mediaLibrary: { onDeleteBody: 'Да ли сте сигурни да желите да обришете изабрани медиј?', fileTooLargeBody: 'Фајл је превелик.\nКонфигурисано је да не дозвољава фајлове веће од %{size} kB.' },
+          mediaLibraryModal: { loading: 'Учитавање...', noResults: 'Нема резултата.', noAssetsFound: 'Нису пронађени фајлови.', noImagesFound: 'Нису пронађене слике.', images: 'Слике', mediaAssets: 'Медијски фајлови', search: 'Претражи...', uploading: 'Отпремање...', upload: 'Отпреми', download: 'Преузми', deleting: 'Брисање...', deleteSelected: 'Обриши изабрано', chooseSelected: 'Изабери изабрано' },
+        },
+        ui: {
+          default: { goBackToSite: 'Назад на сајт' },
+          errorBoundary: { title: 'Грешка', details: 'Дошло је до грешке.', reportIt: 'Пријавите проблем на GitHub-у.' },
+          settingsDropdown: { logOut: 'Одјави се' },
+          toast: { onFailToLoadEntries: 'Неуспешно учитавање уноса: %{details}', onFailToLoadDeployPreview: 'Неуспешно учитавање прегледа: %{details}', onFailToPersist: 'Неуспешно чување уноса: %{details}', onFailToDelete: 'Неуспешно брисање уноса: %{details}', onFailToUpdateStatus: 'Неуспешно ажурирање статуса: %{details}', missingRequiredField: 'Попуните сва обавезна поља пре чувања.', entrySaved: 'Унос сачуван', entryPublished: 'Унос објављен', onFailToPublishEntry: 'Неуспешно објављивање: %{details}', entryUpdated: 'Статус уноса ажуриран', onDeleteEntry: 'Унос обрисан', onFailToAuth: '%{details}', onLoggedOut: 'Одјављени сте. Сачувајте податке и поново се пријавите.', onBackendDown: 'Backend сервис има проблем. Погледајте %{details} за више информација.' },
+        },
+        workflow: {
+          workflow: { loading: 'Учитавање уноса уредничког тока', workflowHeading: 'Уреднички ток', newPost: 'Нови унос', description: '%{smart_count} унос чека преглед, %{readyCount} спреман за објављивање. |||| %{smart_count} уноса чека преглед, %{readyCount} спремних за објављивање.', dateFormat: 'MMMM D' },
+          workflowCard: { lastChange: '%{date} од %{author}', lastChangeNoAuthor: '%{date}', lastChangeNoDate: 'од %{author}', deleteChanges: 'Обриши промене', deleteNewEntry: 'Обриши нови унос', publishChanges: 'Објави промене', publishNewEntry: 'Објави нови унос' },
+          workflowList: { onDeleteEntry: 'Да ли сте сигурни да желите да обришете овај унос?', onPublishingNotReadyEntry: 'Само ставке са статусом "Спремно" могу бити објављене.', onPublishEntry: 'Да ли сте сигурни да желите да објавите овај унос?', draftHeader: 'Нацрти', inReviewHeader: 'У прегледу', readyHeader: 'Спремно', currentEntries: '%{smart_count} унос |||| %{smart_count} уноса' },
+        },
+      });
+    </script>
   </body>
 </html>

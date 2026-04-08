@@ -51,7 +51,7 @@ export function ServiceCard({
             {description}
           </p>
           <span className="inline-flex items-center gap-2 text-primary text-sm font-medium group-hover:gap-3 transition-all">
-            Saznaj vise
+            Saznaj više
             <ArrowRight className="w-4 h-4" />
           </span>
         </div>

@@ -17,7 +17,7 @@ export default function ContactPage() {
               Javite nam se
             </h1>
             <p className="text-lg text-text-light max-w-2xl mx-auto">
-              Zakazite pregled ili postavite pitanje. Tu smo da vam pomognemo.
+              Zakažite pregled ili postavite pitanje. Tu smo da vam pomognemo.
             </p>
           </FadeIn>
         </div>
@@ -110,7 +110,7 @@ export default function ContactPage() {
             <div className="lg:col-span-2">
               <div className="bg-white rounded-2xl p-8 border border-border shadow-sm">
                 <h2 className="text-2xl font-bold font-[family-name:var(--font-playfair)] text-text mb-6">
-                  Posaljite poruku
+                  Pošaljite poruku
                 </h2>
                 <form
                   action="https://formspree.io/f/placeholder"
@@ -127,7 +127,7 @@ export default function ContactPage() {
                         name="name"
                         required
                         className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
-                        placeholder="Vase ime"
+                        placeholder="Vaše ime"
                       />
                     </div>
                     <div>
@@ -138,7 +138,7 @@ export default function ContactPage() {
                         type="tel"
                         name="phone"
                         className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
-                        placeholder="Vas broj telefona"
+                        placeholder="Vaš broj telefona"
                       />
                     </div>
                   </div>
@@ -163,7 +163,7 @@ export default function ContactPage() {
                       required
                       rows={5}
                       className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm resize-none"
-                      placeholder="Opisite vase tegobe ili postavite pitanje..."
+                      placeholder="Opišite vaše tegobe ili postavite pitanje..."
                     />
                   </div>
                   <button
@@ -171,7 +171,7 @@ export default function ContactPage() {
                     className="inline-flex items-center gap-2 bg-primary text-white px-8 py-3.5 rounded-full font-semibold hover:bg-primary-dark transition-colors"
                   >
                     <Send className="w-4 h-4" />
-                    Posaljite poruku
+                    Pošaljite poruku
                   </button>
                 </form>
               </div>

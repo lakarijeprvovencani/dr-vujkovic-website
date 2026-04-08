@@ -30,27 +30,27 @@ export default function AboutPage() {
                 O doktoru
               </span>
               <h1 className="text-4xl sm:text-5xl font-bold font-[family-name:var(--font-playfair)] mb-6 text-text">
-                MSc. dr Branko M. Vujkovic
+                MSc. dr Branko M. Vujković
               </h1>
               <p className="text-xl text-primary font-medium mb-6">
-                Specijalista fizikalne medicine i rehabilitacije
+                Specijalist fizikalne medicine i rehabilitacije
               </p>
               <p className="text-text-light leading-relaxed mb-4">
-                Dr Branko M. Vujkovic je specijalist fizikalne medicine i
-                rehabilitacije sa dugogodisnjim iskustvom u dijagnostici i
-                lecenju bolnih stanja lokomotornog aparata, regenerativnoj
+                Dr Branko M. Vujković je specijalist fizikalne medicine i
+                rehabilitacije sa dugogodišnjim iskustvom u dijagnostici i
+                lečenju bolnih stanja lokomotornog aparata, regenerativnoj
                 medicini i rehabilitaciji sportskih povreda.
               </p>
               <p className="text-text-light leading-relaxed mb-4">
-                Posebno je posvecen primeni savremenih metoda u lecenju,
-                ukljucujuci sokvejv terapiju, PRP tretmane i druge inovativne
+                Posebno je posvećen primeni savremenih metoda u lečenju,
+                uključujući šokvejv terapiju, PRP tretmane i druge inovativne
                 pristupe koji donose rezultate.
               </p>
               <p className="text-text-light leading-relaxed mb-8">
-                Aktivan je u edukaciji pacijenata i strucne javnosti kroz
-                publikovanje strucnih tekstova, posebno u oblasti zdravlja
-                kicme - poznata serija &quot;Disciplina kicme&quot; na portalu
-                Zdravlje Plus. Ucesnik medjunarodnih kongresa poput ESPRM-a
+                Aktivan je u edukaciji pacijenata i stručne javnosti kroz
+                publikovanje stručnih tekstova, posebno u oblasti zdravlja
+                kičme - poznata serija &quot;Disciplina kičme&quot; na portalu
+                Zdravlje Plus. Učesnik međunarodnih kongresa poput ESPRM-a
                 u Ljubljani i ISPRM-a u Lisabonu.
               </p>
             </FadeIn>
@@ -60,7 +60,7 @@ export default function AboutPage() {
                 <div className="rounded-3xl overflow-hidden shadow-2xl">
                   <Image
                     src="/images/dr-vujkovic-portrait.png"
-                    alt="Dr Branko Vujkovic"
+                    alt="Dr Branko Vujković"
                     width={700}
                     height={800}
                     className="object-cover w-full"
@@ -77,14 +77,14 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             tag="Kvalifikacije"
-            title="Obrazovanje i strucnost"
+            title="Obrazovanje i stručnost"
           />
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
                 icon: GraduationCap,
                 title: "Medicinski fakultet",
-                desc: "Zavrsene studije medicine",
+                desc: "Završene studije medicine",
               },
               {
                 icon: Award,
@@ -99,7 +99,7 @@ export default function AboutPage() {
               {
                 icon: Users,
                 title: "Kontinuirana edukacija",
-                desc: "Strucna usavrsavanja i kongresi",
+                desc: "Stručna usavršavanja i kongresi",
               },
             ].map(({ icon: Icon, title, desc }, i) => (
               <FadeIn key={title} delay={i * 0.1}>
@@ -121,8 +121,8 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             tag="Aktivnosti"
-            title="Medjunarodni kongresi i edukacija"
-            description="Kontinuirano strucno usavrsavanje na vodecim medjunarodnim kongresima fizikalne medicine."
+            title="Međunarodni kongresi i edukacija"
+            description="Kontinuirano stručno usavršavanje na vodećim međunarodnim kongresima fizikalne medicine."
           />
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
@@ -139,7 +139,7 @@ export default function AboutPage() {
               {
                 src: "/images/dr-vujkovic-toxin-academy.png",
                 alt: "Toxin Academy edukacija",
-                caption: "Toxin Academy, Svajcarska",
+                caption: "Toxin Academy, Švajcarska",
               },
             ].map(({ src, alt, caption }, i) => (
               <FadeIn key={src} delay={i * 0.1}>
@@ -178,7 +178,7 @@ export default function AboutPage() {
                   "Detaljna dijagnostika i analiza stanja",
                   "Individualni plan terapije za svakog pacijenta",
                   "Kombinacija savremenih i proverenih metoda",
-                  "Kontinuirano pracenje napretka",
+                  "Kontinuirano praćenje napretka",
                   "Edukacija pacijenata o prevenciji",
                   "Saradnja sa drugim specijalistima po potrebi",
                 ].map((item) => (
@@ -208,10 +208,10 @@ export default function AboutPage() {
       <section className="py-16 bg-primary text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold font-[family-name:var(--font-playfair)] mb-4">
-            Zakazite konsultaciju
+            Zakažite konsultaciju
           </h2>
           <p className="text-white/80 mb-8 max-w-xl mx-auto">
-            Kontaktirajte nas i zakazite pregled. Radujemo se sto cemo vam pomoci
+            Kontaktirajte nas i zakažite pregled. Radujemo se što ćemo vam pomoći
             na putu ka oporavku.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

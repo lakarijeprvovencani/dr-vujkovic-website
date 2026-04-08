@@ -27,7 +27,7 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex flex-col">
             <span className="text-xl font-bold text-primary font-[family-name:var(--font-playfair)]">
-              Dr Branko Vujkovic
+              Dr Branko Vujković
             </span>
             <span className="text-xs text-text-muted tracking-wide">
               Fizikalna medicina i rehabilitacija
@@ -85,7 +85,7 @@ export function Header() {
               className="ml-4 flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-primary-dark transition-colors"
             >
               <Phone className="w-4 h-4" />
-              Zakazi pregled
+              Zakaži pregled
             </a>
           </nav>
 
@@ -141,7 +141,7 @@ export function Header() {
             className="flex items-center justify-center gap-2 bg-primary text-white px-5 py-3 rounded-full text-sm font-medium mt-4"
           >
             <Phone className="w-4 h-4" />
-            Zakazi pregled
+            Zakaži pregled
           </a>
         </nav>
       </div>

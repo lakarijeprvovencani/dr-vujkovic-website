@@ -9,33 +9,32 @@ locale: "sr"
 
 collections:
   - name: "blog"
-    label: "Blog postovi"
+    label: "Блог постови"
+    label_singular: "Блог пост"
     folder: "content/blog"
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Naslov", name: "title", widget: "string" }
-      - { label: "Datum", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Наслов", name: "title", widget: "string" }
+      - { label: "Датум", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
       - {
-          label: "Kategorija",
+          label: "Категорија",
           name: "category",
           widget: "select",
           options:
             [
-              "Strucni tekst",
-              "Naucni rad",
+              "Stručni tekst",
+              "Naučni rad",
               "Ispovest pacijenta",
               "Saveti",
               "Aktuelnosti",
             ],
         }
-      - { label: "Kratak opis", name: "excerpt", widget: "text" }
+      - { label: "Кратак опис", name: "excerpt", widget: "text" }
       - {
-          label: "Slika",
+          label: "Слика (опционо)",
           name: "image",
           widget: "image",
           required: false,
-          media_folder: "/public/images/uploads",
-          public_folder: "/images/uploads",
         }
-      - { label: "Tekst", name: "body", widget: "markdown" }
+      - { label: "Текст", name: "body", widget: "markdown" }
