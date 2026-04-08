@@ -1,0 +1,41 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+locale: "sr"
+
+collections:
+  - name: "blog"
+    label: "Blog postovi"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Naslov", name: "title", widget: "string" }
+      - { label: "Datum", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - {
+          label: "Kategorija",
+          name: "category",
+          widget: "select",
+          options:
+            [
+              "Strucni tekst",
+              "Naucni rad",
+              "Ispovest pacijenta",
+              "Saveti",
+              "Aktuelnosti",
+            ],
+        }
+      - { label: "Kratak opis", name: "excerpt", widget: "text" }
+      - {
+          label: "Slika",
+          name: "image",
+          widget: "image",
+          required: false,
+          media_folder: "/public/images/uploads",
+          public_folder: "/images/uploads",
+        }
+      - { label: "Tekst", name: "body", widget: "markdown" }
