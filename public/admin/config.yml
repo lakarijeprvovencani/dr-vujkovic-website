@@ -9,16 +9,16 @@ locale: "sr"
 
 collections:
   - name: "blog"
-    label: "Блог постови"
-    label_singular: "Блог пост"
+    label: "Blog postovi"
+    label_singular: "Blog post"
     folder: "content/blog"
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Наслов", name: "title", widget: "string" }
-      - { label: "Датум", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Naslov", name: "title", widget: "string" }
+      - { label: "Datum", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
       - {
-          label: "Категорија",
+          label: "Kategorija",
           name: "category",
           widget: "select",
           options:
@@ -30,11 +30,11 @@ collections:
               "Aktuelnosti",
             ],
         }
-      - { label: "Кратак опис", name: "excerpt", widget: "text" }
+      - { label: "Kratak opis", name: "excerpt", widget: "text" }
       - {
-          label: "Слика (опционо)",
+          label: "Slika (opciono)",
           name: "image",
           widget: "image",
           required: false,
         }
-      - { label: "Текст", name: "body", widget: "markdown" }
+      - { label: "Tekst", name: "body", widget: "markdown" }

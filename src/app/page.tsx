@@ -110,21 +110,26 @@ export default function Home() {
       </section>
 
       {/* Trust badges */}
-      <section className="py-8 bg-white border-b border-border">
+      <section className="py-12 bg-white border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { icon: Shield, label: "Licencirani specijalist" },
-              { icon: Heart, label: "Individualni pristup" },
-              { icon: Clock, label: "Savremene metode" },
-              { icon: Star, label: "Zadovoljni pacijenti" },
-            ].map(({ icon: Icon, label }) => (
+              { icon: Shield, label: "Licencirani specijalist", desc: "Verifikovan stručnjak" },
+              { icon: Heart, label: "Individualni pristup", desc: "Prilagođena terapija" },
+              { icon: Clock, label: "Savremene metode", desc: "Najnovija tehnologija" },
+              { icon: Star, label: "Zadovoljni pacijenti", desc: "Dokazani rezultati" },
+            ].map(({ icon: Icon, label, desc }) => (
               <div
                 key={label}
-                className="flex items-center justify-center gap-3 text-text-light"
+                className="flex items-center gap-4 bg-background rounded-xl p-4 border border-border/50"
               >
-                <Icon className="w-5 h-5 text-primary" />
-                <span className="text-sm font-medium">{label}</span>
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                  <Icon className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-text">{label}</p>
+                  <p className="text-xs text-text-muted">{desc}</p>
+                </div>
               </div>
             ))}
           </div>
