@@ -7,7 +7,7 @@
     <title>Admin Panel - Dr Branko Vujković</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <style>
       :root {
@@ -16,257 +16,330 @@
         --primary-dark: #0e2f44;
         --accent: #27ae60;
         --accent-light: #2ecc71;
-        --bg: #f8fafb;
+        --bg: #f4f7f9;
+        --white: #ffffff;
         --border: #e2e8f0;
         --text: #1a1a2e;
         --text-light: #4a5568;
-        --radius: 12px;
+        --radius: 10px;
+      }
+
+      /* ===== GLOBAL ===== */
+      * {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
       }
 
       body {
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
         background: var(--bg) !important;
+        margin: 0 !important;
       }
 
-      /* Header bar */
-      [class*="AppHeaderContent"],
-      [class*="AppHeader"] > div,
-      [class*="AppHeader"] header {
-        background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%) !important;
+      /* ===== TOP HEADER BAR ===== */
+      /* Target the root header wrapper to fill full width */
+      [class*="AppHeader"],
+      [class*="AppHeader"] > header,
+      [class*="AppHeader"] > div {
+        background: linear-gradient(135deg, var(--primary-dark), var(--primary)) !important;
         border-bottom: none !important;
-        box-shadow: 0 2px 12px rgba(0,0,0,0.18) !important;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.15) !important;
+        min-height: 56px !important;
       }
 
-      /* Header nav links */
+      /* Make sure header content aligns nicely */
+      [class*="AppHeaderContent"] {
+        background: transparent !important;
+        box-shadow: none !important;
+      }
+
+      /* Header text and links */
       [class*="AppHeader"] a,
-      [class*="AppHeader"] span {
-        font-family: 'Inter', sans-serif !important;
+      [class*="AppHeader"] span,
+      [class*="AppHeader"] button {
+        color: white !important;
         font-weight: 500 !important;
-        letter-spacing: 0.3px !important;
+        font-size: 14px !important;
+        text-shadow: none !important;
       }
 
-      /* Sidebar */
+      [class*="AppHeader"] a:hover {
+        opacity: 0.85 !important;
+      }
+
+      /* ===== SIDEBAR ===== */
       [class*="Sidebar"] {
-        background: white !important;
+        background: var(--white) !important;
         border-right: 1px solid var(--border) !important;
-        font-family: 'Inter', sans-serif !important;
       }
 
-      /* Collection top area */
+      [class*="SidebarNavList"] a {
+        border-radius: 8px !important;
+        margin: 2px 8px !important;
+        padding: 8px 12px !important;
+        transition: all 0.15s ease !important;
+      }
+
+      [class*="SidebarNavList"] a:hover,
+      [class*="SidebarNavList"] a[class*="active"] {
+        background: rgba(26, 82, 118, 0.06) !important;
+      }
+
+      /* ===== COLLECTION TOP (Blog postovi heading area) ===== */
       [class*="CollectionTop"] {
-        background: white !important;
+        background: var(--white) !important;
         border-radius: var(--radius) !important;
         border: 1px solid var(--border) !important;
         padding: 20px 24px !important;
-        margin-bottom: 20px !important;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.04) !important;
+        margin-bottom: 16px !important;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.04) !important;
       }
 
-      /* NEW entry button - make it look great */
-      [class*="CollectionTop"] a[href*="new"],
-      a[class*="TopNewButton"],
-      [class*="TopNewButton"] {
+      /* ===== "NOVI" BUTTON ===== */
+      a[href*="/new"],
+      [class*="TopNewButton"],
+      [class*="CollectionTop"] a[href*="new"] {
         background: var(--accent) !important;
         color: white !important;
         border: none !important;
-        border-radius: 10px !important;
-        padding: 10px 24px !important;
+        border-radius: 8px !important;
+        padding: 10px 22px !important;
         font-weight: 600 !important;
         font-size: 14px !important;
-        font-family: 'Inter', sans-serif !important;
-        letter-spacing: 0.3px !important;
-        box-shadow: 0 2px 8px rgba(39, 174, 96, 0.3) !important;
-        transition: all 0.2s ease !important;
+        box-shadow: 0 2px 8px rgba(39, 174, 96, 0.25) !important;
         text-decoration: none !important;
-        display: inline-flex !important;
-        align-items: center !important;
-        gap: 6px !important;
+        transition: all 0.2s ease !important;
       }
 
-      [class*="CollectionTop"] a[href*="new"]:hover,
-      a[class*="TopNewButton"]:hover,
+      a[href*="/new"]:hover,
       [class*="TopNewButton"]:hover {
         background: var(--accent-light) !important;
-        box-shadow: 0 4px 14px rgba(39, 174, 96, 0.4) !important;
         transform: translateY(-1px) !important;
+        box-shadow: 0 4px 12px rgba(39, 174, 96, 0.35) !important;
       }
 
-      /* Cards / List items */
+      /* ===== LIST ITEMS / CARDS ===== */
       [class*="ListCard"],
       [class*="ListCardLink"] {
+        background: var(--white) !important;
         border-radius: var(--radius) !important;
         border: 1px solid var(--border) !important;
         box-shadow: 0 1px 3px rgba(0,0,0,0.03) !important;
         transition: all 0.2s ease !important;
-        font-family: 'Inter', sans-serif !important;
-        padding: 16px 20px !important;
+        margin-bottom: 8px !important;
       }
 
       [class*="ListCard"]:hover,
       [class*="ListCardLink"]:hover {
-        box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important;
         border-color: var(--primary-light) !important;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.07) !important;
         transform: translateY(-1px) !important;
       }
 
-      /* Editor container */
+      /* ===== EDITOR AREA ===== */
       [class*="EditorContainer"],
-      [class*="ControlPane"] {
-        background: white !important;
+      [class*="ControlPane"],
+      [class*="EditorControlPane"] {
+        background: var(--white) !important;
         border-radius: var(--radius) !important;
-        font-family: 'Inter', sans-serif !important;
       }
 
       /* Editor toolbar */
       [class*="EditorToolbar"] {
-        background: white !important;
+        background: var(--white) !important;
         border-bottom: 1px solid var(--border) !important;
         border-radius: var(--radius) var(--radius) 0 0 !important;
-        padding: 12px 16px !important;
+        padding: 10px 16px !important;
       }
 
-      /* Toolbar buttons */
-      [class*="ToolbarButton"],
-      button[class*="Button"] {
-        border-radius: 8px !important;
-        font-weight: 600 !important;
-        font-family: 'Inter', sans-serif !important;
-        transition: all 0.2s ease !important;
-      }
-
-      /* Publish / Save buttons */
-      [class*="ToolbarDropdown"] button,
-      [class*="PublishButton"] button {
-        background: var(--accent) !important;
-        border-color: var(--accent) !important;
-        border-radius: 10px !important;
-        color: white !important;
-        font-weight: 600 !important;
-        padding: 8px 20px !important;
-        box-shadow: 0 2px 8px rgba(39, 174, 96, 0.25) !important;
-      }
-
-      [class*="ToolbarDropdown"] button:hover,
-      [class*="PublishButton"] button:hover {
-        background: var(--accent-light) !important;
-      }
-
-      /* Input fields */
+      /* ===== FORM FIELDS - INPUTS ===== */
       input[type="text"],
       input[type="email"],
       input[type="url"],
-      textarea,
-      select {
-        border-radius: 10px !important;
+      input[type="number"],
+      textarea {
+        border-radius: 8px !important;
         border: 1.5px solid var(--border) !important;
         padding: 12px 16px !important;
-        font-family: 'Inter', sans-serif !important;
         font-size: 14px !important;
+        background: var(--white) !important;
+        color: var(--text) !important;
         transition: all 0.2s ease !important;
-        background: var(--bg) !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
       }
 
       input[type="text"]:focus,
       input[type="email"]:focus,
       input[type="url"]:focus,
-      textarea:focus,
-      select:focus {
+      textarea:focus {
         border-color: var(--primary-light) !important;
-        box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.12) !important;
+        box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.1) !important;
         outline: none !important;
-        background: white !important;
       }
 
-      /* Labels */
-      label[class*="Label"],
-      [class*="ControlLabel"] {
+      /* ===== SELECT / DROPDOWN (Kategorija fix) ===== */
+      select,
+      [class*="SelectWidget"] select,
+      [class*="react-select"],
+      [class*="Select"] > div {
+        border-radius: 8px !important;
+        border: 1.5px solid var(--border) !important;
+        padding: 10px 16px !important;
+        font-size: 14px !important;
+        background: var(--white) !important;
+        color: var(--text) !important;
+        appearance: auto !important;
+        -webkit-appearance: auto !important;
+        min-height: 44px !important;
+      }
+
+      /* Fix the weird checkbox/circle in select */
+      [class*="SelectWidget"] [class*="indicatorContainer"],
+      [class*="Select"] [class*="clearIndicator"],
+      [class*="react-select"] [class*="indicatorSeparator"] {
+        display: none !important;
+      }
+
+      /* ===== LABELS ===== */
+      label,
+      [class*="Label"],
+      [class*="ControlLabel"],
+      legend {
         font-weight: 600 !important;
         color: var(--text) !important;
-        font-size: 13px !important;
+        font-size: 12px !important;
         text-transform: uppercase !important;
-        letter-spacing: 0.5px !important;
-        font-family: 'Inter', sans-serif !important;
+        letter-spacing: 0.8px !important;
+        margin-bottom: 6px !important;
       }
 
-      /* Back to collection link */
-      [class*="BackCollection"] a,
-      [class*="backCollection"] a {
-        color: var(--primary) !important;
+      /* ===== FIELD WRAPPERS ===== */
+      [class*="ControlContainer"],
+      [class*="ObjectWidgetTopBar"] {
+        margin-bottom: 24px !important;
+      }
+
+      /* ===== BUTTONS ===== */
+      button {
+        border-radius: 8px !important;
+        font-weight: 600 !important;
+        transition: all 0.2s ease !important;
+        cursor: pointer !important;
+      }
+
+      /* Publish / Save buttons */
+      [class*="ToolbarDropdown"] > button,
+      [class*="PublishButton"] button,
+      button[class*="ToolbarButton"][class*="publish" i] {
+        background: var(--accent) !important;
+        border: none !important;
+        border-radius: 8px !important;
+        color: white !important;
+        font-weight: 600 !important;
+        padding: 8px 20px !important;
+        font-size: 14px !important;
+        box-shadow: 0 2px 6px rgba(39, 174, 96, 0.25) !important;
+      }
+
+      [class*="ToolbarDropdown"] > button:hover,
+      [class*="PublishButton"] button:hover {
+        background: var(--accent-light) !important;
+      }
+
+      /* Delete button */
+      button[class*="delete" i] {
+        color: #e53e3e !important;
+      }
+
+      /* ===== MARKDOWN EDITOR ===== */
+      [class*="MarkdownControl"],
+      [class*="MarkdownWidget"] {
+        border-radius: var(--radius) !important;
+        border: 1.5px solid var(--border) !important;
+        overflow: hidden !important;
+      }
+
+      /* Markdown toolbar */
+      [class*="Toolbar"][class*="markdown" i],
+      [class*="MarkdownControl"] > div:first-child {
+        background: #f8fafb !important;
+        border-bottom: 1px solid var(--border) !important;
+      }
+
+      /* ===== IMAGE WIDGET ===== */
+      [class*="ImageWidget"],
+      [class*="FileWidget"] {
+        border-radius: var(--radius) !important;
+        border: 1.5px dashed var(--border) !important;
+        padding: 20px !important;
+        background: #fafbfc !important;
+      }
+
+      [class*="ImageWidget"] a,
+      [class*="FileWidget"] a {
+        color: var(--primary-light) !important;
         font-weight: 500 !important;
-        font-family: 'Inter', sans-serif !important;
       }
 
-      /* Toast notifications */
+      /* ===== TOAST NOTIFICATIONS ===== */
       [class*="Toast"] {
         border-radius: var(--radius) !important;
-        font-family: 'Inter', sans-serif !important;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.15) !important;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.12) !important;
       }
 
-      /* Markdown editor */
-      [class*="MarkdownControl"] {
-        border-radius: var(--radius) !important;
+      /* ===== DROPDOWNS ===== */
+      [class*="Dropdown"] ul,
+      [class*="dropdown"] ul,
+      [class*="MenuList"] {
+        border-radius: 8px !important;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.12) !important;
+        border: 1px solid var(--border) !important;
+        background: var(--white) !important;
         overflow: hidden !important;
-        border: 1.5px solid var(--border) !important;
       }
 
-      /* Scrollbar */
-      ::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: transparent;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #cbd5e0;
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #a0aec0;
+      [class*="Dropdown"] li,
+      [class*="MenuList"] > div {
+        padding: 10px 16px !important;
+        transition: background 0.15s ease !important;
       }
 
-      /* Media library modal */
+      [class*="Dropdown"] li:hover,
+      [class*="MenuList"] > div:hover {
+        background: rgba(26, 82, 118, 0.05) !important;
+      }
+
+      /* ===== MEDIA LIBRARY ===== */
       [class*="MediaLibraryModal"] {
         border-radius: var(--radius) !important;
       }
 
-      /* Dropdown menus */
-      [class*="Dropdown"] ul,
-      [class*="dropdown"] ul {
-        border-radius: 10px !important;
-        box-shadow: 0 8px 30px rgba(0,0,0,0.12) !important;
-        border: 1px solid var(--border) !important;
-        font-family: 'Inter', sans-serif !important;
+      /* ===== SCROLLBAR ===== */
+      ::-webkit-scrollbar { width: 8px; height: 8px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: #cbd5e0; border-radius: 4px; }
+      ::-webkit-scrollbar-thumb:hover { background: #a0aec0; }
+
+      /* ===== BACK LINK ===== */
+      [class*="BackCollection"] a,
+      [class*="backCollection"] a {
+        color: var(--primary) !important;
+        font-weight: 500 !important;
+        text-decoration: none !important;
       }
 
-      /* Status badges */
+      /* ===== SEARCH INPUT ===== */
+      [class*="SearchInput"] input {
+        border-radius: 8px !important;
+        border: 1.5px solid var(--border) !important;
+        padding: 8px 14px !important;
+      }
+
+      /* ===== STATUS BADGES ===== */
       [class*="StatusButton"],
-      [class*="status"] span {
+      [class*="StatusDropdown"] button {
         border-radius: 20px !important;
         font-size: 12px !important;
         font-weight: 600 !important;
-        font-family: 'Inter', sans-serif !important;
-      }
-
-      /* Quick add dropdown button */
-      [class*="QuickAdd"] button {
-        border-radius: 10px !important;
-        font-family: 'Inter', sans-serif !important;
-        font-weight: 600 !important;
-      }
-
-      /* Collection heading */
-      h2[class*="Heading"],
-      [class*="CollectionLabel"] {
-        font-family: 'Inter', sans-serif !important;
-        font-weight: 700 !important;
-      }
-
-      /* Search input */
-      [class*="SearchInput"] input {
-        border-radius: 10px !important;
-        font-family: 'Inter', sans-serif !important;
       }
     </style>
   </head>

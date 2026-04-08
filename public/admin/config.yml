@@ -32,7 +32,7 @@ collections:
         }
       - { label: "Kratak opis", name: "excerpt", widget: "text" }
       - {
-          label: "Slika (opciono)",
+          label: "Slika",
           name: "image",
           widget: "image",
           required: false,
