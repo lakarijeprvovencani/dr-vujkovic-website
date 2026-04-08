@@ -9,237 +9,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <style>
-      /* ===== GLOBAL FONT ===== */
-      * { font-family: 'Inter', -apple-system, sans-serif !important; }
-      body { background: #f4f7f9 !important; }
-
-      /* ===== HEADER NAV BAR ===== */
-      [class*="AppHeader"] {
-        background: linear-gradient(135deg, #0e2f44, #1a5276) !important;
-        box-shadow: 0 2px 12px rgba(0,0,0,0.18) !important;
-        border-bottom: none !important;
-      }
-      [class*="AppHeader"] > div,
-      [class*="AppHeader"] header,
-      [class*="AppHeaderContent"] {
-        background: transparent !important;
-        border: none !important;
-        box-shadow: none !important;
-        min-height: 60px !important;
-        padding-top: 4px !important;
-        padding-bottom: 4px !important;
-      }
-      [class*="AppHeader"] a,
-      [class*="AppHeader"] span,
-      [class*="AppHeader"] button,
-      [class*="AppHeader"] nav a {
-        color: #fff !important;
-        font-weight: 500 !important;
-        font-size: 14px !important;
-        letter-spacing: 0.2px !important;
-      }
-      [class*="AppHeader"] a:hover,
-      [class*="AppHeader"] button:hover {
-        opacity: 0.8 !important;
-      }
-
-      /* ===== SIDEBAR ===== */
-      [class*="Sidebar"] {
-        background: #fff !important;
-        border-right: 1px solid #e2e8f0 !important;
-      }
-
-      /* ===== COLLECTION TOP ===== */
-      [class*="CollectionTop"] {
-        background: #fff !important;
-        border-radius: 10px !important;
-        border: 1px solid #e2e8f0 !important;
-        padding: 20px 24px !important;
-        margin-bottom: 16px !important;
-      }
-
-      /* ===== "NOVI" BUTTON ===== */
-      a[href*="/new"],
-      [class*="TopNewButton"] {
-        background: #27ae60 !important;
-        color: #fff !important;
-        border: none !important;
-        border-radius: 8px !important;
-        padding: 10px 24px !important;
-        font-weight: 600 !important;
-        font-size: 14px !important;
-        text-decoration: none !important;
-        box-shadow: 0 2px 8px rgba(39,174,96,0.3) !important;
-        transition: background 0.2s !important;
-        display: inline-block !important;
-      }
-      a[href*="/new"]:hover,
-      [class*="TopNewButton"]:hover {
-        background: #2ecc71 !important;
-      }
-
-      /* ===== LIST CARDS - fix ugly blue hover ===== */
-      [class*="ListCard"],
-      [class*="ListCardLink"],
-      [class*="ListCard"] > a {
-        background: #fff !important;
-        border-radius: 10px !important;
-        border: 1px solid #e2e8f0 !important;
-        box-shadow: none !important;
-        transition: border-color 0.2s, box-shadow 0.2s !important;
-        outline: none !important;
-        margin-bottom: 8px !important;
-      }
-      /* Remove all blue outlines and focus rings */
-      [class*="ListCard"]:hover,
-      [class*="ListCardLink"]:hover,
-      [class*="ListCard"] > a:hover {
-        border-color: #2980b9 !important;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
-        outline: none !important;
-      }
-      [class*="ListCard"]:focus,
-      [class*="ListCardLink"]:focus,
-      [class*="ListCard"] > a:focus,
-      [class*="ListCard"]:focus-within {
-        outline: none !important;
-        box-shadow: none !important;
-        border-color: #2980b9 !important;
-      }
-      /* Kill any blue outline or box-shadow on all focusable elements */
-      a:focus, a:focus-visible,
-      div:focus, div:focus-visible {
-        outline: none !important;
-      }
-
-      /* ===== EDITOR ===== */
-      [class*="EditorContainer"],
-      [class*="ControlPane"] {
-        background: #fff !important;
-        border-radius: 10px !important;
-      }
-      [class*="EditorToolbar"] {
-        background: #fff !important;
-        border-bottom: 1px solid #e2e8f0 !important;
-      }
-
-      /* ===== FORM INPUTS ===== */
-      input[type="text"],
-      input[type="email"],
-      input[type="url"],
-      input[type="number"],
-      textarea {
-        border-radius: 8px !important;
-        border: 1.5px solid #e2e8f0 !important;
-        padding: 12px 16px !important;
-        font-size: 14px !important;
-        background: #fff !important;
-        transition: border-color 0.2s !important;
-      }
-      input:focus, textarea:focus {
-        border-color: #2980b9 !important;
-        box-shadow: 0 0 0 2px rgba(41,128,185,0.1) !important;
-        outline: none !important;
-      }
-
-      /* ===== SELECT / KATEGORIJA - fix the white box over text ===== */
-      /* The CMS uses react-select. The "clear" indicator is that white rounded box */
-      [class*="css-"][class*="indicatorContainer"],
-      [class*="clearIndicator"],
-      [class*="indicatorSeparator"],
-      [class*="css-"][class*="Indicator"]:not([class*="dropdown"]):not([class*="Down"]) {
-        display: none !important;
-        width: 0 !important;
-        padding: 0 !important;
-      }
-      /* Style the select container itself */
-      [class*="css-"][class*="control"],
-      [class*="react-select"] [class*="control"] {
-        border-radius: 8px !important;
-        border: 1.5px solid #e2e8f0 !important;
-        min-height: 46px !important;
-        background: #fff !important;
-        box-shadow: none !important;
-      }
-      [class*="css-"][class*="control"]:hover {
-        border-color: #2980b9 !important;
-      }
-      /* Dropdown menu styling */
-      [class*="css-"][class*="menu"] {
-        border-radius: 8px !important;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.12) !important;
-        border: 1px solid #e2e8f0 !important;
-        overflow: hidden !important;
-        z-index: 999 !important;
-      }
-      [class*="css-"][class*="option"] {
-        padding: 10px 16px !important;
-        font-size: 14px !important;
-        transition: background 0.15s !important;
-      }
-      [class*="css-"][class*="option"]:hover {
-        background: rgba(26,82,118,0.06) !important;
-      }
-      /* Selected option - keep the nice blue but subtle */
-      [class*="css-"][class*="option"][class*="selected"],
-      [class*="css-"][class*="option"][aria-selected="true"] {
-        background: #2980b9 !important;
-        color: #fff !important;
-      }
-
-      /* ===== LABELS ===== */
-      label, [class*="Label"], [class*="ControlLabel"], legend {
-        font-weight: 600 !important;
-        color: #1a1a2e !important;
-        font-size: 12px !important;
-        text-transform: uppercase !important;
-        letter-spacing: 0.8px !important;
-      }
-
-      /* ===== PUBLISH / SAVE BUTTONS ===== */
-      [class*="ToolbarDropdown"] > button:first-child,
-      [class*="PublishButton"] button {
-        background: #27ae60 !important;
-        border: none !important;
-        border-radius: 8px !important;
-        color: #fff !important;
-        font-weight: 600 !important;
-        padding: 8px 20px !important;
-        font-size: 14px !important;
-      }
-
-      /* ===== MARKDOWN EDITOR ===== */
-      [class*="MarkdownControl"],
-      [class*="MarkdownWidget"] {
-        border-radius: 10px !important;
-        border: 1.5px solid #e2e8f0 !important;
-        overflow: hidden !important;
-      }
-
-      /* ===== IMAGE WIDGET ===== */
-      [class*="ImageWidget"],
-      [class*="FileWidget"] {
-        border-radius: 10px !important;
-        border: 1.5px dashed #e2e8f0 !important;
-        padding: 20px !important;
-        background: #fafbfc !important;
-      }
-
-      /* ===== TOASTS ===== */
-      [class*="Toast"] {
-        border-radius: 10px !important;
-      }
-
-      /* ===== SCROLLBAR ===== */
-      ::-webkit-scrollbar { width: 8px; }
-      ::-webkit-scrollbar-track { background: transparent; }
-      ::-webkit-scrollbar-thumb { background: #cbd5e0; border-radius: 4px; }
-    </style>
   </head>
   <body>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     <script>
+      // Srpski locale - LATINICA
       CMS.registerLocale('sr', {
         app: {
           header: { content: 'Sadržaj', media: 'Mediji', quickAdd: 'Brzo dodaj' },
@@ -276,6 +50,241 @@
           workflowList: { onDeleteEntry: 'Da li ste sigurni da želite da obrišete ovaj unos?', onPublishingNotReadyEntry: 'Samo stavke sa statusom "Spremno" mogu biti objavljene.', onPublishEntry: 'Da li ste sigurni da želite da objavite ovaj unos?', draftHeader: 'Nacrti', inReviewHeader: 'U pregledu', readyHeader: 'Spremno', currentEntries: '%{smart_count} unos |||| %{smart_count} unosa' },
         },
       });
+
+      // Inject custom styles AFTER CMS loads (so they override CMS's own styles)
+      function injectAdminStyles() {
+        var style = document.createElement('style');
+        style.id = 'custom-admin-theme';
+        style.textContent = `
+          /* ===== GLOBAL ===== */
+          body {
+            font-family: 'Inter', -apple-system, sans-serif !important;
+            background: #f0f4f8 !important;
+          }
+
+          /* ===== HEADER ===== */
+          header {
+            background: linear-gradient(135deg, #0e2f44 0%, #1a5276 100%) !important;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.2) !important;
+            border-bottom: none !important;
+            padding: 8px 0 !important;
+          }
+          header nav, header div, header a, header span, header button {
+            font-family: 'Inter', sans-serif !important;
+          }
+          header a, header span {
+            color: rgba(255,255,255,0.9) !important;
+            font-weight: 500 !important;
+            font-size: 14px !important;
+          }
+          header a:hover {
+            color: #fff !important;
+          }
+          /* Quick add button in header */
+          header button {
+            color: #fff !important;
+            border-color: rgba(255,255,255,0.3) !important;
+            border-radius: 8px !important;
+          }
+
+          /* ===== MAIN CONTENT AREA ===== */
+          main, #nc-root > div > div {
+            font-family: 'Inter', sans-serif !important;
+          }
+
+          /* ===== ALL LINKS ===== */
+          a {
+            font-family: 'Inter', sans-serif !important;
+          }
+
+          /* ===== REMOVE UGLY FOCUS OUTLINES ===== */
+          *:focus {
+            outline: 2px solid rgba(41,128,185,0.3) !important;
+            outline-offset: 2px !important;
+          }
+          a:focus, button:focus, div[role]:focus {
+            outline: none !important;
+            box-shadow: none !important;
+          }
+
+          /* ===== COLLECTION LIST ENTRIES ===== */
+          /* Target the actual list item links */
+          div[class*="Entries"] a,
+          div[class*="entries"] a,
+          ul li a[href*="entries"],
+          a[href*="entries/"] {
+            background: #fff !important;
+            border: 1px solid #e2e8f0 !important;
+            border-radius: 12px !important;
+            padding: 16px 20px !important;
+            margin-bottom: 8px !important;
+            display: block !important;
+            transition: all 0.2s ease !important;
+            text-decoration: none !important;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04) !important;
+          }
+          div[class*="Entries"] a:hover,
+          div[class*="entries"] a:hover,
+          a[href*="entries/"]:hover {
+            border-color: #2980b9 !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
+            transform: translateY(-1px) !important;
+          }
+
+          /* ===== "NEW" BUTTON ===== */
+          a[href*="/new"] {
+            background: #27ae60 !important;
+            color: #fff !important;
+            border: none !important;
+            border-radius: 10px !important;
+            padding: 12px 28px !important;
+            font-weight: 600 !important;
+            font-size: 14px !important;
+            text-decoration: none !important;
+            box-shadow: 0 4px 12px rgba(39,174,96,0.3) !important;
+            transition: all 0.2s ease !important;
+            display: inline-block !important;
+            letter-spacing: 0.3px !important;
+          }
+          a[href*="/new"]:hover {
+            background: #2ecc71 !important;
+            box-shadow: 0 6px 20px rgba(39,174,96,0.4) !important;
+            transform: translateY(-2px) !important;
+            color: #fff !important;
+          }
+
+          /* ===== FORM INPUTS ===== */
+          input[type="text"],
+          input[type="email"],
+          input[type="url"],
+          input[type="number"],
+          textarea {
+            font-family: 'Inter', sans-serif !important;
+            border: 2px solid #e2e8f0 !important;
+            border-radius: 10px !important;
+            padding: 14px 18px !important;
+            font-size: 15px !important;
+            background: #fff !important;
+            transition: border-color 0.2s, box-shadow 0.2s !important;
+          }
+          input[type="text"]:focus,
+          input[type="email"]:focus,
+          textarea:focus {
+            border-color: #2980b9 !important;
+            box-shadow: 0 0 0 4px rgba(41,128,185,0.1) !important;
+          }
+
+          /* ===== SELECT / DROPDOWN (react-select) ===== */
+          /* Hide the clear indicator (white circle) */
+          div[class*="indicatorContainer"]:first-of-type,
+          div[class*="clearIndicator"],
+          span[class*="indicatorSeparator"] {
+            display: none !important;
+          }
+          /* Style the select control */
+          div[class*="control"] {
+            border: 2px solid #e2e8f0 !important;
+            border-radius: 10px !important;
+            min-height: 50px !important;
+            font-family: 'Inter', sans-serif !important;
+            font-size: 15px !important;
+            background: #fff !important;
+            box-shadow: none !important;
+          }
+          div[class*="control"]:hover {
+            border-color: #2980b9 !important;
+          }
+          /* Dropdown menu */
+          div[class*="menu"] {
+            border-radius: 10px !important;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15) !important;
+            border: 1px solid #e2e8f0 !important;
+            overflow: hidden !important;
+            z-index: 9999 !important;
+            font-family: 'Inter', sans-serif !important;
+          }
+          div[class*="option"] {
+            font-family: 'Inter', sans-serif !important;
+            padding: 12px 18px !important;
+            font-size: 14px !important;
+            transition: background 0.15s !important;
+          }
+
+          /* ===== LABELS ===== */
+          label {
+            font-family: 'Inter', sans-serif !important;
+            font-weight: 700 !important;
+            font-size: 12px !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            color: #2d3748 !important;
+            margin-bottom: 8px !important;
+          }
+
+          /* ===== SAVE / PUBLISH BUTTONS ===== */
+          button[class*="ToolbarButton"],
+          div[class*="ToolbarDropdown"] > button {
+            background: #27ae60 !important;
+            color: #fff !important;
+            border: none !important;
+            border-radius: 10px !important;
+            padding: 10px 24px !important;
+            font-weight: 600 !important;
+            font-size: 14px !important;
+            font-family: 'Inter', sans-serif !important;
+            box-shadow: 0 2px 8px rgba(39,174,96,0.25) !important;
+            cursor: pointer !important;
+          }
+
+          /* ===== MARKDOWN EDITOR ===== */
+          div[class*="MarkdownControl"],
+          div[id*="markdown"] {
+            border: 2px solid #e2e8f0 !important;
+            border-radius: 12px !important;
+            overflow: hidden !important;
+          }
+
+          /* ===== IMAGE WIDGET ===== */
+          div[class*="FileContent"],
+          div[class*="ImageWidget"] {
+            border: 2px dashed #d1d9e6 !important;
+            border-radius: 12px !important;
+            padding: 24px !important;
+            background: #f8fafc !important;
+          }
+
+          /* ===== SIDEBAR ===== */
+          aside, div[class*="Sidebar"] {
+            background: #fff !important;
+            border-right: 1px solid #e2e8f0 !important;
+            font-family: 'Inter', sans-serif !important;
+          }
+
+          /* ===== BACK LINK ===== */
+          a[class*="BackArrow"],
+          a[href*="collections/"] {
+            font-family: 'Inter', sans-serif !important;
+          }
+
+          /* ===== SCROLLBAR ===== */
+          ::-webkit-scrollbar { width: 8px; }
+          ::-webkit-scrollbar-track { background: transparent; }
+          ::-webkit-scrollbar-thumb { background: #cbd5e0; border-radius: 4px; }
+
+          /* ===== TOAST ===== */
+          div[class*="Toast"] {
+            border-radius: 12px !important;
+            font-family: 'Inter', sans-serif !important;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15) !important;
+          }
+        `;
+        document.head.appendChild(style);
+      }
+
+      // Inject styles after CMS has initialized
+      setTimeout(injectAdminStyles, 500);
+      setTimeout(injectAdminStyles, 2000);
+      setTimeout(injectAdminStyles, 5000);
     </script>
   </body>
 </html>
