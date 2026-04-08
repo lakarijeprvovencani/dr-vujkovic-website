@@ -10,343 +10,236 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <style>
-      :root {
-        --primary: #1a5276;
-        --primary-light: #2980b9;
-        --primary-dark: #0e2f44;
-        --accent: #27ae60;
-        --accent-light: #2ecc71;
-        --bg: #f4f7f9;
-        --white: #ffffff;
-        --border: #e2e8f0;
-        --text: #1a1a2e;
-        --text-light: #4a5568;
-        --radius: 10px;
-      }
+      /* ===== GLOBAL FONT ===== */
+      * { font-family: 'Inter', -apple-system, sans-serif !important; }
+      body { background: #f4f7f9 !important; }
 
-      /* ===== GLOBAL ===== */
-      * {
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
-      }
-
-      body {
-        background: var(--bg) !important;
-        margin: 0 !important;
-      }
-
-      /* ===== TOP HEADER BAR ===== */
-      /* Target the root header wrapper to fill full width */
-      [class*="AppHeader"],
-      [class*="AppHeader"] > header,
-      [class*="AppHeader"] > div {
-        background: linear-gradient(135deg, var(--primary-dark), var(--primary)) !important;
+      /* ===== HEADER NAV BAR ===== */
+      [class*="AppHeader"] {
+        background: linear-gradient(135deg, #0e2f44, #1a5276) !important;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.18) !important;
         border-bottom: none !important;
-        box-shadow: 0 2px 16px rgba(0,0,0,0.15) !important;
-        min-height: 56px !important;
       }
-
-      /* Make sure header content aligns nicely */
+      [class*="AppHeader"] > div,
+      [class*="AppHeader"] header,
       [class*="AppHeaderContent"] {
         background: transparent !important;
+        border: none !important;
         box-shadow: none !important;
+        min-height: 60px !important;
+        padding-top: 4px !important;
+        padding-bottom: 4px !important;
       }
-
-      /* Header text and links */
       [class*="AppHeader"] a,
       [class*="AppHeader"] span,
-      [class*="AppHeader"] button {
-        color: white !important;
+      [class*="AppHeader"] button,
+      [class*="AppHeader"] nav a {
+        color: #fff !important;
         font-weight: 500 !important;
         font-size: 14px !important;
-        text-shadow: none !important;
+        letter-spacing: 0.2px !important;
       }
-
-      [class*="AppHeader"] a:hover {
-        opacity: 0.85 !important;
+      [class*="AppHeader"] a:hover,
+      [class*="AppHeader"] button:hover {
+        opacity: 0.8 !important;
       }
 
       /* ===== SIDEBAR ===== */
       [class*="Sidebar"] {
-        background: var(--white) !important;
-        border-right: 1px solid var(--border) !important;
+        background: #fff !important;
+        border-right: 1px solid #e2e8f0 !important;
       }
 
-      [class*="SidebarNavList"] a {
-        border-radius: 8px !important;
-        margin: 2px 8px !important;
-        padding: 8px 12px !important;
-        transition: all 0.15s ease !important;
-      }
-
-      [class*="SidebarNavList"] a:hover,
-      [class*="SidebarNavList"] a[class*="active"] {
-        background: rgba(26, 82, 118, 0.06) !important;
-      }
-
-      /* ===== COLLECTION TOP (Blog postovi heading area) ===== */
+      /* ===== COLLECTION TOP ===== */
       [class*="CollectionTop"] {
-        background: var(--white) !important;
-        border-radius: var(--radius) !important;
-        border: 1px solid var(--border) !important;
+        background: #fff !important;
+        border-radius: 10px !important;
+        border: 1px solid #e2e8f0 !important;
         padding: 20px 24px !important;
         margin-bottom: 16px !important;
-        box-shadow: 0 1px 4px rgba(0,0,0,0.04) !important;
       }
 
       /* ===== "NOVI" BUTTON ===== */
       a[href*="/new"],
-      [class*="TopNewButton"],
-      [class*="CollectionTop"] a[href*="new"] {
-        background: var(--accent) !important;
-        color: white !important;
+      [class*="TopNewButton"] {
+        background: #27ae60 !important;
+        color: #fff !important;
         border: none !important;
         border-radius: 8px !important;
-        padding: 10px 22px !important;
+        padding: 10px 24px !important;
         font-weight: 600 !important;
         font-size: 14px !important;
-        box-shadow: 0 2px 8px rgba(39, 174, 96, 0.25) !important;
         text-decoration: none !important;
-        transition: all 0.2s ease !important;
+        box-shadow: 0 2px 8px rgba(39,174,96,0.3) !important;
+        transition: background 0.2s !important;
+        display: inline-block !important;
       }
-
       a[href*="/new"]:hover,
       [class*="TopNewButton"]:hover {
-        background: var(--accent-light) !important;
-        transform: translateY(-1px) !important;
-        box-shadow: 0 4px 12px rgba(39, 174, 96, 0.35) !important;
+        background: #2ecc71 !important;
       }
 
-      /* ===== LIST ITEMS / CARDS ===== */
+      /* ===== LIST CARDS - fix ugly blue hover ===== */
       [class*="ListCard"],
-      [class*="ListCardLink"] {
-        background: var(--white) !important;
-        border-radius: var(--radius) !important;
-        border: 1px solid var(--border) !important;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.03) !important;
-        transition: all 0.2s ease !important;
+      [class*="ListCardLink"],
+      [class*="ListCard"] > a {
+        background: #fff !important;
+        border-radius: 10px !important;
+        border: 1px solid #e2e8f0 !important;
+        box-shadow: none !important;
+        transition: border-color 0.2s, box-shadow 0.2s !important;
+        outline: none !important;
         margin-bottom: 8px !important;
       }
-
+      /* Remove all blue outlines and focus rings */
       [class*="ListCard"]:hover,
-      [class*="ListCardLink"]:hover {
-        border-color: var(--primary-light) !important;
-        box-shadow: 0 3px 12px rgba(0,0,0,0.07) !important;
-        transform: translateY(-1px) !important;
+      [class*="ListCardLink"]:hover,
+      [class*="ListCard"] > a:hover {
+        border-color: #2980b9 !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
+        outline: none !important;
+      }
+      [class*="ListCard"]:focus,
+      [class*="ListCardLink"]:focus,
+      [class*="ListCard"] > a:focus,
+      [class*="ListCard"]:focus-within {
+        outline: none !important;
+        box-shadow: none !important;
+        border-color: #2980b9 !important;
+      }
+      /* Kill any blue outline or box-shadow on all focusable elements */
+      a:focus, a:focus-visible,
+      div:focus, div:focus-visible {
+        outline: none !important;
       }
 
-      /* ===== EDITOR AREA ===== */
+      /* ===== EDITOR ===== */
       [class*="EditorContainer"],
-      [class*="ControlPane"],
-      [class*="EditorControlPane"] {
-        background: var(--white) !important;
-        border-radius: var(--radius) !important;
+      [class*="ControlPane"] {
+        background: #fff !important;
+        border-radius: 10px !important;
       }
-
-      /* Editor toolbar */
       [class*="EditorToolbar"] {
-        background: var(--white) !important;
-        border-bottom: 1px solid var(--border) !important;
-        border-radius: var(--radius) var(--radius) 0 0 !important;
-        padding: 10px 16px !important;
+        background: #fff !important;
+        border-bottom: 1px solid #e2e8f0 !important;
       }
 
-      /* ===== FORM FIELDS - INPUTS ===== */
+      /* ===== FORM INPUTS ===== */
       input[type="text"],
       input[type="email"],
       input[type="url"],
       input[type="number"],
       textarea {
         border-radius: 8px !important;
-        border: 1.5px solid var(--border) !important;
+        border: 1.5px solid #e2e8f0 !important;
         padding: 12px 16px !important;
         font-size: 14px !important;
-        background: var(--white) !important;
-        color: var(--text) !important;
-        transition: all 0.2s ease !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
+        background: #fff !important;
+        transition: border-color 0.2s !important;
       }
-
-      input[type="text"]:focus,
-      input[type="email"]:focus,
-      input[type="url"]:focus,
-      textarea:focus {
-        border-color: var(--primary-light) !important;
-        box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.1) !important;
+      input:focus, textarea:focus {
+        border-color: #2980b9 !important;
+        box-shadow: 0 0 0 2px rgba(41,128,185,0.1) !important;
         outline: none !important;
       }
 
-      /* ===== SELECT / DROPDOWN (Kategorija fix) ===== */
-      select,
-      [class*="SelectWidget"] select,
-      [class*="react-select"],
-      [class*="Select"] > div {
+      /* ===== SELECT / KATEGORIJA - fix the white box over text ===== */
+      /* The CMS uses react-select. The "clear" indicator is that white rounded box */
+      [class*="css-"][class*="indicatorContainer"],
+      [class*="clearIndicator"],
+      [class*="indicatorSeparator"],
+      [class*="css-"][class*="Indicator"]:not([class*="dropdown"]):not([class*="Down"]) {
+        display: none !important;
+        width: 0 !important;
+        padding: 0 !important;
+      }
+      /* Style the select container itself */
+      [class*="css-"][class*="control"],
+      [class*="react-select"] [class*="control"] {
         border-radius: 8px !important;
-        border: 1.5px solid var(--border) !important;
+        border: 1.5px solid #e2e8f0 !important;
+        min-height: 46px !important;
+        background: #fff !important;
+        box-shadow: none !important;
+      }
+      [class*="css-"][class*="control"]:hover {
+        border-color: #2980b9 !important;
+      }
+      /* Dropdown menu styling */
+      [class*="css-"][class*="menu"] {
+        border-radius: 8px !important;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.12) !important;
+        border: 1px solid #e2e8f0 !important;
+        overflow: hidden !important;
+        z-index: 999 !important;
+      }
+      [class*="css-"][class*="option"] {
         padding: 10px 16px !important;
         font-size: 14px !important;
-        background: var(--white) !important;
-        color: var(--text) !important;
-        appearance: auto !important;
-        -webkit-appearance: auto !important;
-        min-height: 44px !important;
+        transition: background 0.15s !important;
       }
-
-      /* Fix the weird checkbox/circle in select */
-      [class*="SelectWidget"] [class*="indicatorContainer"],
-      [class*="Select"] [class*="clearIndicator"],
-      [class*="react-select"] [class*="indicatorSeparator"] {
-        display: none !important;
+      [class*="css-"][class*="option"]:hover {
+        background: rgba(26,82,118,0.06) !important;
+      }
+      /* Selected option - keep the nice blue but subtle */
+      [class*="css-"][class*="option"][class*="selected"],
+      [class*="css-"][class*="option"][aria-selected="true"] {
+        background: #2980b9 !important;
+        color: #fff !important;
       }
 
       /* ===== LABELS ===== */
-      label,
-      [class*="Label"],
-      [class*="ControlLabel"],
-      legend {
+      label, [class*="Label"], [class*="ControlLabel"], legend {
         font-weight: 600 !important;
-        color: var(--text) !important;
+        color: #1a1a2e !important;
         font-size: 12px !important;
         text-transform: uppercase !important;
         letter-spacing: 0.8px !important;
-        margin-bottom: 6px !important;
       }
 
-      /* ===== FIELD WRAPPERS ===== */
-      [class*="ControlContainer"],
-      [class*="ObjectWidgetTopBar"] {
-        margin-bottom: 24px !important;
-      }
-
-      /* ===== BUTTONS ===== */
-      button {
-        border-radius: 8px !important;
-        font-weight: 600 !important;
-        transition: all 0.2s ease !important;
-        cursor: pointer !important;
-      }
-
-      /* Publish / Save buttons */
-      [class*="ToolbarDropdown"] > button,
-      [class*="PublishButton"] button,
-      button[class*="ToolbarButton"][class*="publish" i] {
-        background: var(--accent) !important;
+      /* ===== PUBLISH / SAVE BUTTONS ===== */
+      [class*="ToolbarDropdown"] > button:first-child,
+      [class*="PublishButton"] button {
+        background: #27ae60 !important;
         border: none !important;
         border-radius: 8px !important;
-        color: white !important;
+        color: #fff !important;
         font-weight: 600 !important;
         padding: 8px 20px !important;
         font-size: 14px !important;
-        box-shadow: 0 2px 6px rgba(39, 174, 96, 0.25) !important;
-      }
-
-      [class*="ToolbarDropdown"] > button:hover,
-      [class*="PublishButton"] button:hover {
-        background: var(--accent-light) !important;
-      }
-
-      /* Delete button */
-      button[class*="delete" i] {
-        color: #e53e3e !important;
       }
 
       /* ===== MARKDOWN EDITOR ===== */
       [class*="MarkdownControl"],
       [class*="MarkdownWidget"] {
-        border-radius: var(--radius) !important;
-        border: 1.5px solid var(--border) !important;
+        border-radius: 10px !important;
+        border: 1.5px solid #e2e8f0 !important;
         overflow: hidden !important;
-      }
-
-      /* Markdown toolbar */
-      [class*="Toolbar"][class*="markdown" i],
-      [class*="MarkdownControl"] > div:first-child {
-        background: #f8fafb !important;
-        border-bottom: 1px solid var(--border) !important;
       }
 
       /* ===== IMAGE WIDGET ===== */
       [class*="ImageWidget"],
       [class*="FileWidget"] {
-        border-radius: var(--radius) !important;
-        border: 1.5px dashed var(--border) !important;
+        border-radius: 10px !important;
+        border: 1.5px dashed #e2e8f0 !important;
         padding: 20px !important;
         background: #fafbfc !important;
       }
 
-      [class*="ImageWidget"] a,
-      [class*="FileWidget"] a {
-        color: var(--primary-light) !important;
-        font-weight: 500 !important;
-      }
-
-      /* ===== TOAST NOTIFICATIONS ===== */
+      /* ===== TOASTS ===== */
       [class*="Toast"] {
-        border-radius: var(--radius) !important;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.12) !important;
-      }
-
-      /* ===== DROPDOWNS ===== */
-      [class*="Dropdown"] ul,
-      [class*="dropdown"] ul,
-      [class*="MenuList"] {
-        border-radius: 8px !important;
-        box-shadow: 0 8px 30px rgba(0,0,0,0.12) !important;
-        border: 1px solid var(--border) !important;
-        background: var(--white) !important;
-        overflow: hidden !important;
-      }
-
-      [class*="Dropdown"] li,
-      [class*="MenuList"] > div {
-        padding: 10px 16px !important;
-        transition: background 0.15s ease !important;
-      }
-
-      [class*="Dropdown"] li:hover,
-      [class*="MenuList"] > div:hover {
-        background: rgba(26, 82, 118, 0.05) !important;
-      }
-
-      /* ===== MEDIA LIBRARY ===== */
-      [class*="MediaLibraryModal"] {
-        border-radius: var(--radius) !important;
+        border-radius: 10px !important;
       }
 
       /* ===== SCROLLBAR ===== */
-      ::-webkit-scrollbar { width: 8px; height: 8px; }
+      ::-webkit-scrollbar { width: 8px; }
       ::-webkit-scrollbar-track { background: transparent; }
       ::-webkit-scrollbar-thumb { background: #cbd5e0; border-radius: 4px; }
-      ::-webkit-scrollbar-thumb:hover { background: #a0aec0; }
-
-      /* ===== BACK LINK ===== */
-      [class*="BackCollection"] a,
-      [class*="backCollection"] a {
-        color: var(--primary) !important;
-        font-weight: 500 !important;
-        text-decoration: none !important;
-      }
-
-      /* ===== SEARCH INPUT ===== */
-      [class*="SearchInput"] input {
-        border-radius: 8px !important;
-        border: 1.5px solid var(--border) !important;
-        padding: 8px 14px !important;
-      }
-
-      /* ===== STATUS BADGES ===== */
-      [class*="StatusButton"],
-      [class*="StatusDropdown"] button {
-        border-radius: 20px !important;
-        font-size: 12px !important;
-        font-weight: 600 !important;
-      }
     </style>
   </head>
   <body>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     <script>
-      // Srpski locale - LATINICA
       CMS.registerLocale('sr', {
         app: {
           header: { content: 'Sadržaj', media: 'Mediji', quickAdd: 'Brzo dodaj' },
